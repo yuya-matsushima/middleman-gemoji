@@ -20,11 +20,14 @@ module Middleman
         content.to_str.gsub(/:([\w+-]+):/) do |match|
           params = {}
           if emoji = Emoji.find_by_alias($1)
-            params[:alt]   = $1
-            params[:size]  = options[:size] if options[:size]
-            params[:style] = options[:style] if options[:style]
+            image = []
 
-            image_tag(File.join(options[:emoji_dir], emoji.image_filename), params)
+            image << %(alt="#{$1}")
+            image << %(src="#{File.join("/", app.config[:http_prefix], options[:emoji_dir], emoji.image_filename)}")
+            image << %(width="#{options[:size]} height="#{options[:size]}") if options[:size]
+            image << %(style="#{options[:style]}") if options[:style]
+
+            "<img #{image.join(" ")} />"
           else
             match
           end if content.present?

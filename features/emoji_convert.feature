@@ -14,6 +14,6 @@ Feature: Emoji convert
     And the file "build/index.html" should not contain "<p>:+1:</p>"
     And the html in "build/index.html" should contain:
       """
-      <p><img alt="+1" src="emoji/unicode/1f44d.png" width="20" height="20" /></p>
+      <p><img alt="+1" src="/images/emoji/unicode/1f44d.png" /></p>
 
       """
