@@ -1,4 +1,4 @@
-require "middleman/gemoji/version"
+require "middleman-gemoji/version"
 
 module Middleman
   module Gemoji
