@@ -10,7 +10,6 @@ module Middleman
       def initialize(app, options_hash = {}, &block)
         super
         @emoji_exist = Dir.exist?(File.join(app.config.source, options[:emoji_dir], "unicode"))
-        p @emoji_exist
         extension = self
 
         app.after_render do |content|
