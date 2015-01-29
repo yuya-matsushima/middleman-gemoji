@@ -4,6 +4,10 @@ module Middleman
 
       def initialize(app, options_hash = {}, &block)
         super
+
+        app.after_render do |content|
+          content
+        end
       end
 
     end
