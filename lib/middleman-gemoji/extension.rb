@@ -24,7 +24,7 @@ module Middleman
 
             image << %(alt="#{$1}")
             image << %(src="#{File.join("/", app.config[:http_prefix], options[:emoji_dir], emoji.image_filename)}")
-            image << %(width="#{options[:size]} height="#{options[:size]}") if options[:size]
+            image << %(width="#{options[:size]}" height="#{options[:size]}") if options[:size]
             image << %(style="#{options[:style]}") if options[:style]
 
             "<img #{image.join(" ")} />"
