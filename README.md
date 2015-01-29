@@ -1,10 +1,10 @@
-# Middleman::Gemoji
+# middleman-emoji
 
-TODO: Write a gem description
+middleman-emoji is an exntension of Middleman.  
+You can use [gemoji](https://github.com/github/gemoji).
 
 ## Installation
 
-Add this line to your application's Gemfile:
 
 ```ruby
 gem 'middleman-gemoji'
@@ -20,11 +20,17 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+In config.rb:
+
+```ruby
+activate :gemoji
+```
+
+Then you can use :emoji:(gemoji) in your template.
 
 ## Contributing
 
-1. Fork it ( https://github.com/[my-github-username]/middleman-gemoji/fork )
+1. Fork it ( https://github.com/yterajima/middleman-gemoji/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
