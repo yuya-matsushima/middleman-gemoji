@@ -1,0 +1,23 @@
+language: ruby
+rvm:
+  - ruby-head
+  - jruby-head
+  - jruby-19mode
+  - 2.2
+  - 2.1
+  - 2.0
+  - 1.9.3
+os:
+  - linux
+  - osx
+matrix:
+  fast_finish: true
+  allow_failures:
+    - rvm: ruby-head
+    - rvm: jruby-19mode
+    - rvm: jruby-head
+script: bundle exec cucumber
+env: TEST=true
+notifications:
+  webhooks:
+    - https://idobata.io/hook/travis_ci/02a15a9e-fb50-4ae6-b498-856c0780bebb
