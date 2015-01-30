@@ -21,13 +21,13 @@ Or install it yourself as:
 $ gem install middleman-gemoji
 ```
 
-You can download emoji files form [gemoji](https://rubygems.org/gems/gemoji):
+You can download emoji files from [gemoji](https://rubygems.org/gems/gemoji) with bundler:
 
 ```sh
-$ middleman gemoji --path images/emoji
+$ bundle exec middleman gemoji --path images/emoji
 ```
 
-You can choose destination path with `--path` or `-p` option.
+You can choose destination path with `--path` or `-p` option (default is 'images/emoji').
 
 ## Usage
 
