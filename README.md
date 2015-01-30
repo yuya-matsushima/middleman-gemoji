@@ -1,7 +1,6 @@
 # middleman-emoji
 
-middleman-emoji is an exntension of Middleman.  
-You can use [gemoji](https://github.com/github/gemoji).
+middleman-emoji is Github-flavored emoji plugin for Middleman.
 
 ## Installation
 
@@ -12,11 +11,23 @@ gem 'middleman-gemoji'
 
 And then execute:
 
-    $ bundle
+```sh
+$ bundle
+```
 
 Or install it yourself as:
 
-    $ gem install middleman-gemoji
+```sh
+$ gem install middleman-gemoji
+```
+
+You can download emoji files form [gemoji](https://rubygems.org/gems/gemoji):
+
+```sh
+$ middleman gemoji --path images/emoji
+```
+
+You can choose destination path with `--path` or `-p` option.
 
 ## Usage
 
@@ -26,7 +37,13 @@ In config.rb:
 activate :gemoji
 ```
 
-Then you can use :emoji:(gemoji) in your template.
+Or with options:
+
+```ruby
+activate :gemoji, :size => 20, :style => "vertical-align: middlele", :emoji_dir => "images/emoji"
+```
+
+Then you can use emoji in your template.
 
 ## Contributing
 
