@@ -1,8 +1,9 @@
-require "middleman-core/cli"
-require "gemoji"
+require 'middleman-core/cli'
+require 'gemoji'
 
 module Middleman
   module Cli
+    # Command Class
     class Gemoji < Thor
       include Thor::Actions
 
@@ -12,7 +13,6 @@ module Middleman
 
       def initialize(*args)
         super
-        Time.zone = ENV['TZ'] || "UTC"
       end
 
       def self.source_root
@@ -24,11 +24,11 @@ module Middleman
         true
       end
 
-      desc "gemoji", "Copy emoji to destination directory"
-      method_option "path",
-        aliases: "-p",
-        desc: "Destination path of directory",
-        default: "images/emoji"
+      desc 'gemoji', 'Copy emoji to destination directory'
+      method_option 'path',
+        aliases: '-p',
+        desc: 'Destination path of directory',
+        default: 'images/emoji'
       def gemoji
         app    = ::Middleman::Application
         target = File.join(app.root, app.config.source, options[:path])
