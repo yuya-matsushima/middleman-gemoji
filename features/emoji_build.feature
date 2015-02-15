@@ -14,7 +14,7 @@ Feature: Emoji convert when build
     And the file "build/index.html" should not contain "<p>:+1:</p>"
     And the file "build/index.html" should contain:
       """
-      <p><img alt="+1" src="/images/emoji/unicode/1f44d.png" /></p>
+      <p><img class="gemoji" alt="+1" src="/images/emoji/unicode/1f44d.png" /></p>
       """
 
   Scenario: Convert content that doesn't have :emoji:
@@ -34,7 +34,7 @@ Feature: Emoji convert when build
     And the file "build/index.html" should not contain "<p>:+1:</p>"
     And the file "build/index.html" should contain:
       """
-      <p><img alt="+1" src="/images/emoji/unicode/1f44d.png" width="20" height="20" /></p>
+      <p><img class="gemoji" alt="+1" src="/images/emoji/unicode/1f44d.png" width="20" height="20" /></p>
 
       """
 
@@ -49,7 +49,7 @@ Feature: Emoji convert when build
     And the file "build/index.html" should not contain "<p>:+1:</p>"
     And the file "build/index.html" should contain:
       """
-      <p><img alt="+1" src="/images/emoji/unicode/1f44d.png" style="vertical-align: middle" /></p>
+      <p><img class="gemoji" alt="+1" src="/images/emoji/unicode/1f44d.png" style="vertical-align: middle" /></p>
 
       """
 
@@ -64,7 +64,7 @@ Feature: Emoji convert when build
     And the file "build/index.html" should not contain "<p>:+1:</p>"
     And the file "build/index.html" should contain:
       """
-      <p><img alt="+1" src="/img/emoji/unicode/1f44d.png" /></p>
+      <p><img class="gemoji" alt="+1" src="/img/emoji/unicode/1f44d.png" /></p>
 
       """
 
@@ -80,7 +80,7 @@ Feature: Emoji convert when build
     And the file "build/index.html" should not contain "<p>:+1:</p>"
     And the file "build/index.html" should contain:
       """
-      <p><img alt="+1" src="http://localhost:4567/img/emoji/unicode/1f44d.png" /></p>
+      <p><img class="gemoji" alt="+1" src="http://localhost:4567/img/emoji/unicode/1f44d.png" /></p>
 
       """
 
@@ -91,6 +91,6 @@ Feature: Emoji convert when build
     And the file "build/index.html" should not contain "<p>:+1:</p>"
     And the file "build/index.html" should contain:
       """
-      <p><img alt="+1" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f44d.png" /></p>
+      <p><img class="gemoji" alt="+1" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f44d.png" /></p>
 
       """

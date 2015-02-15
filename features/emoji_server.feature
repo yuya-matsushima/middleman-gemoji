@@ -5,7 +5,7 @@ Feature: Emoji convert under `middleman server`
     When I go to "/index.html"
     Then I should see:
       """
-      <p><img alt="+1" src="/images/emoji/unicode/1f44d.png" /></p>
+      <p><img class="gemoji" alt="+1" src="/images/emoji/unicode/1f44d.png" /></p>
 
       """
 

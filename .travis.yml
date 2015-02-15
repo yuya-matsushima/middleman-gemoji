@@ -1,4 +1,5 @@
 language: ruby
+script: bundle exec cucumber
 rvm:
   - ruby-head
   - jruby-head
@@ -13,11 +14,10 @@ os:
 matrix:
   fast_finish: true
   allow_failures:
-    - rvm: ruby-head
-    - rvm: jruby-19mode
-    - rvm: jruby-head
-script: bundle exec cucumber
+  - rvm: ruby-head
+  - rvm: jruby-19mode
+  - rvm: jruby-head
 env: TEST=true
 notifications:
-  webhooks:
-    - https://idobata.io/hook/travis_ci/02a15a9e-fb50-4ae6-b498-856c0780bebb
+  slack:
+    secure: ZoA6qJJ4JHOtvWAxOhiGDuXEAV0qFhdMgIT7YHEqjzbQaLWNvoLJ0xcdMV47d3UsvrRie3jmhSZ/F1mUf//WGu2HgNMk5VWGHnBKmtXuCk7P1wg0TaeChnKKkV/ls0pRLk+2VS4bYaUYI/8KfJP20eCfvsvkgoXFVusx4CyfmE0=

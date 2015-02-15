@@ -7,7 +7,7 @@ Feature: Emoji convert in Markdown
     And the file "build/index.html" should not contain "<p>:+1:</p>"
     And the file "build/index.html" should contain:
       """
-      <p><img alt="+1" src="/images/emoji/unicode/1f44d.png" /></p>
+      <p><img class="gemoji" alt="+1" src="/images/emoji/unicode/1f44d.png" /></p>
 
       """
 
@@ -23,7 +23,7 @@ Feature: Emoji convert in Markdown
   Scenario: Convert ":+1+" to emoji under `middleman server`
     Given the Server is running at "markdown-app"
     When I go to "/index.html"
-    Then I should see '<p><img alt="+1" src="/images/emoji/unicode/1f44d.png" /></p>'
+    Then I should see '<p><img class="gemoji" alt="+1" src="/images/emoji/unicode/1f44d.png" /></p>'
 
   Scenario: Convert content that doesn't have :emoji: under `middleman server`
     Given the Server is running at "markdown-app"
