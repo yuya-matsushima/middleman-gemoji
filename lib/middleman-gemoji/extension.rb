@@ -15,7 +15,7 @@ module Middleman
         )
         extension    = self
 
-        app.after_render do |content|
+        app.before_render do |content|
           extension.emojify(content)
         end
       end
@@ -31,7 +31,7 @@ module Middleman
             image << size(options[:size]) if options[:size]
             image << style(options[:style]) if options[:style]
 
-            "<img #{image.join(' ')} />"
+            %(<img class="gemoji" #{image.join(' ')} />)
           else
             match
           end if content.present?
