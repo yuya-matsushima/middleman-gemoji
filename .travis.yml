@@ -3,11 +3,9 @@ script: bundle exec cucumber
 rvm:
   - ruby-head
   - jruby-head
-  - jruby-19mode
   - 2.2
   - 2.1
   - 2.0
-  - 1.9.3
 os:
   - linux
   - osx
@@ -15,7 +13,6 @@ matrix:
   fast_finish: true
   allow_failures:
   - rvm: ruby-head
-  - rvm: jruby-19mode
   - rvm: jruby-head
 env: TEST=true
 notifications:
