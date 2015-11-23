@@ -37,5 +37,8 @@ module Middleman
         `mkdir -p #{target} && cp -Rp #{source} #{target}`
       end
     end
+
+    # Add to CLI
+    Base.register(Middleman::Cli::Gemoji, 'gemoji', 'gemoji [options]', "hoge")
   end
 end
