@@ -4,12 +4,12 @@ require 'gemoji'
 module Middleman
   module Cli
     # Command Class
-    class Gemoji < Thor
+    class Gemoji < Thor::Group
       include Thor::Actions
 
       check_unknown_options!
 
-      namespace :gemoji
+      #namespace :gemoji
 
       def initialize(*args)
         super
@@ -24,18 +24,22 @@ module Middleman
         true
       end
 
-      desc 'gemoji', 'Copy emoji to destination directory'
-      method_option 'path',
+      class_option 'path',
+        type: :string,
+        default: 'images/emoji',
         aliases: '-p',
-        desc: 'Destination path of directory',
-        default: 'images/emoji'
-      def gemoji
+        desc: 'Destination path of directory'
+
+      def install
         app    = ::Middleman::Application
         target = File.join(app.root, app.config.source, options[:path])
         source = File.expand_path('../../images/emoji/*', `gem which gemoji`)
 
         `mkdir -p #{target} && cp -Rp #{source} #{target}`
       end
+
+      # Add to CLI
+      Base.register(self, 'gemoji', 'gemoji [options]', "hoge")
     end
   end
 end
