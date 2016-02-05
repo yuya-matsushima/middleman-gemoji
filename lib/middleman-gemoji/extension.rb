@@ -11,7 +11,7 @@ module Middleman
       def initialize(app, options_hash = {}, &block)
         super
         @emoji_exist = Dir.exist?(
-          File.join(app.config.source, options[:emoji_dir], 'unicode')
+          File.join(app.root, app.config.source, options[:emoji_dir], 'unicode')
         )
         extension    = self
 
