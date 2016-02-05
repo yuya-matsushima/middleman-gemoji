@@ -11,7 +11,7 @@ Feature: Emoji convert in Markdown
     Given a fixture app "slim-app"
     When I run `middleman build`
     Then the exit status should be 0
-    And the file "build/no-emoji.html" should contain '<p>nil</p>'
+    And the file "build/no-emoji.html" should contain '<p>hoge</p>'
 
   Scenario: Convert ":+1+" to emoji under `middleman server`
     Given the Server is running at "slim-app"
@@ -21,4 +21,4 @@ Feature: Emoji convert in Markdown
   Scenario: Convert content that doesn't have :emoji: under `middleman server`
     Given the Server is running at "slim-app"
     When I go to "/no-emoji.html"
-    Then I should see '<p>nil</p>'
+    Then I should see '<p>hoge</p>'
