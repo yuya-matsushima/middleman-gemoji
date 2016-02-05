@@ -14,5 +14,5 @@ Feature: Emoji convert under `middleman server`
     When I go to "/no-emoji.html"
     Then I should see:
       """
-      nil
+      hoge
       """
