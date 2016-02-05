@@ -1,6 +1,6 @@
-# middleman-emoji
+# middleman-gemoji
 
-middleman-emoji is Github-flavored emoji plugin for Middleman.
+middleman-gemoji is Github-flavored emoji plugin for Middleman.
 
 ## Installation
 

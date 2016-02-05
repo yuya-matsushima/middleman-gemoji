@@ -1,3 +1,6 @@
+Emoji icon Licenses: https://github.com/github/gemoji/blob/master/LICENSE
+
+This Plugin License:
 Copyright (c) 2015 Yuya Terajima
 
 MIT License
