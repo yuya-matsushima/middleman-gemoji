@@ -21,7 +21,7 @@ Feature: Emoji convert when build
     Given a fixture app "gemoji-app"
     When I run `middleman build`
     Then the exit status should be 0
-    And the file "build/no-emoji.html" should contain "nil"
+    And the file "build/no-emoji.html" should contain "hoge"
 
   Scenario: Convert ":+1+" to emoji with :size option
     Given a fixture app "gemoji-app"
