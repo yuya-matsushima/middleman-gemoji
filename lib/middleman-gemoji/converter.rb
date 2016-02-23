@@ -24,8 +24,8 @@ module Middleman
             image = []
             image << %(alt="#{$1}")
             image << src(emoji.image_filename)
-            image << size
-            image << style
+            image << size if size
+            image << style if style
 
             %(<img class="gemoji" #{image.join(' ').strip} />)
           else

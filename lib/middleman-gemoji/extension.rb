@@ -1,4 +1,4 @@
-require './converter'
+require_relative './converter'
 
 module Middleman
   module Gemoji
@@ -10,7 +10,7 @@ module Middleman
 
       def initialize(app, options_hash = {}, &block)
         super
-        converter = Middleman::Gemoji::Converter(app, options)
+        converter = Middleman::Gemoji::Converter.new(app, options)
         app.before_render do |content|
           converter.convert(content)
         end
