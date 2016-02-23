@@ -17,7 +17,10 @@ module Middleman
 
       def convert(content)
         return content if content.blank?
+        emojify(content)
+      end
 
+      def emojify(content)
         content.to_str.gsub(/:([\w+-]+):/) do |match|
           emoji = Emoji.find_by_alias($1)
           if emoji

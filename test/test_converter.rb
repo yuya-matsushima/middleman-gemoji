@@ -26,20 +26,21 @@ class TestConverter < Minitest::Test
     end
   end
 
-  def test_convert
+  def test_convert_received_blank
+    assert_equal('', @converter.convert(''))
+    assert_equal(nil, @converter.convert(nil))
+  end
+
+  def test_emojify
     assert_equal(
       '<img class="gemoji" alt="+1" src="/images/emoji/unicode/1f44d.png" />',
       @converter.convert(':+1:')
     );
   end
 
-  def test_convert_received_blank
-    assert_equal('', @converter.convert(''))
-    assert_equal(nil, @converter.convert(nil))
-  end
-
-  def test_convert_received_normal_string
-    assert_equal('hoge', @converter.convert('hoge'));
+  def test_emojify_received_normal_string
+    str = '<p>hoge</p>'
+    assert_equal(str, @converter.convert(str));
   end
 
   def test_src
