@@ -1,5 +1,4 @@
 require './test/test_helper'
-require 'middleman'
 require './lib/middleman-gemoji/converter'
 
 class TestConverter < Minitest::Test
