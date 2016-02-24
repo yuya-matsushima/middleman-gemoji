@@ -1,5 +1,8 @@
 # middleman-gemoji
 
+[![Build Status](https://travis-ci.org/yterajima/middleman-gemoji.svg?branch=master)](https://travis-ci.org/yterajima/middleman-gemoji)
+[![Gem Version](https://badge.fury.io/rb/middleman-gemoji.svg)](https://badge.fury.io/rb/middleman-gemoji)
+
 middleman-gemoji is Github-flavored emoji plugin for Middleman.
 
 ## Installation
