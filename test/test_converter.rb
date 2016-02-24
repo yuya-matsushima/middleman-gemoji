@@ -56,7 +56,34 @@ class TestConverter < Minitest::Test
   end
 
   def test_has_body_return_true
-    html = "<html><head><title>something title :+1:</title></head><body>\n<p>somethig emoji :+1:</p>\n</body></html>"
+    html = <<-'HTML'
+      <!doctype html>
+      <html>
+        <head>
+          <meta charset="utf-8">
+          <title>something title :+1:</title>
+        </head>
+        <body>
+          <p>:+1:</p>
+        </body>
+      </html>
+    HTML
+    assert_equal(true, @converter.has_body?(html))
+  end
+
+  def test_has_body_return_true__body_has_class
+    html = <<-'HTML'
+      <!doctype html>
+      <html>
+        <head>
+          <meta charset="utf-8">
+          <title>something title :+1:</title>
+        </head>
+        <body class="index">
+          <p>:+1:</p>
+        </body>
+      </html>
+    HTML
     assert_equal(true, @converter.has_body?(html))
   end
 

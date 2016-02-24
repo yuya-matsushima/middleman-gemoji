@@ -44,14 +44,14 @@ module Middleman
 
       # emojify only in the body tag
       def emojify_inner_body(content)
-        pattern = /<body>(.+?)<\/body>/m
+        pattern = /<body.+?>(.+?)<\/body>/m
         content.to_str.gsub(pattern) do |html|
           emojify(html).gsub(pattern, '\1')
         end
       end
 
       def has_body?(content)
-        !(/<body>.+?<\/body>/m =~ content.to_str).nil?
+        !(/<body.+?>.+?<\/body>/m =~ content.to_str).nil?
       end
 
       def src(path)
