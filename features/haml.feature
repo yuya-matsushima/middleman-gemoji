@@ -7,13 +7,22 @@ Feature: Emoji convert in Markdown
     And the file "build/index.html" should not contain "<p>:+1:</p>"
     And the file "build/index.html" should contain:
       """
+      <title>something title :+1:</title>
+      """
+    And the file "build/index.html" should contain:
+      """
       <p><img class="gemoji" alt="+1" src="/images/emoji/unicode/1f44d.png" /></p>
+
       """
 
   Scenario: Convert content that doesn't have :emoji:
     Given a fixture app "haml-app"
     When I run `middleman build`
     Then the exit status should be 0
+    And the file "build/index.html" should contain:
+      """
+      <title>something title :+1:</title>
+      """
     And the file "build/no-emoji.html" should contain:
       """
       <p>hoge</p>

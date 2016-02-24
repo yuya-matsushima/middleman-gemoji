@@ -11,7 +11,7 @@ module Middleman
       def initialize(app, options_hash = {}, &block)
         super
         converter = Middleman::Gemoji::Converter.new(app, options)
-        app.before_render do |content|
+        app.after_render do |content|
           converter.convert(content)
         end
       end
