@@ -14,6 +14,10 @@ Feature: Emoji convert when build
     And the file "build/index.html" should not contain "<p>:+1:</p>"
     And the file "build/index.html" should contain:
       """
+      <title>something title :+1:</title>
+      """
+    And the file "build/index.html" should contain:
+      """
       <p><img class="gemoji" alt="+1" src="/images/emoji/unicode/1f44d.png" /></p>
       """
 
@@ -21,7 +25,7 @@ Feature: Emoji convert when build
     Given a fixture app "gemoji-app"
     When I run `middleman build`
     Then the exit status should be 0
-    And the file "build/no-emoji.html" should contain "hoge"
+    And the file "build/no-emoji.html" should contain "<p>hoge</p>"
 
   Scenario: Convert ":+1+" to emoji with :size option
     Given a fixture app "gemoji-app"

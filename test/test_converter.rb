@@ -1,5 +1,4 @@
 require './test/test_helper'
-require 'middleman'
 require './lib/middleman-gemoji/converter'
 
 class TestConverter < Minitest::Test
@@ -27,20 +26,70 @@ class TestConverter < Minitest::Test
     end
   end
 
-  def test_convert
-    assert_equal(
-      '<img class="gemoji" alt="+1" src="/images/emoji/unicode/1f44d.png" />',
-      @converter.convert(':+1:')
-    );
-  end
-
   def test_convert_received_blank
     assert_equal('', @converter.convert(''))
     assert_equal(nil, @converter.convert(nil))
   end
 
-  def test_convert_received_normal_string
-    assert_equal('hoge', @converter.convert('hoge'));
+  def test_emojify
+    assert_equal(
+      '<img class="gemoji" alt="+1" src="/images/emoji/unicode/1f44d.png" />',
+      @converter.emojify(':+1:')
+    );
+  end
+
+  def test_emojify_received_normal_string
+    html = '<p>hoge</p>'
+    assert_equal(html, @converter.emojify(html));
+  end
+
+  def test_emojify_inner_body
+    html = "<html><head><title>something title :+1:</title></head><body>\n<p>somethig emoji :+1:</p>\n</body></html>"
+    result = @converter.emojify_inner_body(html)
+    assert_match(/1f44d.png/, result)
+    assert_match(/something title :\+1:/, result)
+  end
+
+  def test_emojify_inner_body_received_normal_string
+    html = '<p>hoge</p>'
+    assert_equal(html, @converter.emojify_inner_body(html))
+  end
+
+  def test_has_body_return_true
+    html = <<-'HTML'
+      <!doctype html>
+      <html>
+        <head>
+          <meta charset="utf-8">
+          <title>something title :+1:</title>
+        </head>
+        <body>
+          <p>:+1:</p>
+        </body>
+      </html>
+    HTML
+    assert_equal(true, @converter.has_body?(html))
+  end
+
+  def test_has_body_return_true__body_has_class
+    html = <<-'HTML'
+      <!doctype html>
+      <html>
+        <head>
+          <meta charset="utf-8">
+          <title>something title :+1:</title>
+        </head>
+        <body class="index">
+          <p>:+1:</p>
+        </body>
+      </html>
+    HTML
+    assert_equal(true, @converter.has_body?(html))
+  end
+
+  def test_has_body_return_false
+    html = '<p>somethig emoji :+1:</p>'
+    assert_equal(false, @converter.has_body?(html))
   end
 
   def test_src
