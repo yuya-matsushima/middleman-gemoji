@@ -40,7 +40,7 @@ class TestConverter < Minitest::Test
 
   def test_emojify_received_normal_string
     html = '<p>hoge</p>'
-    assert_equal(str, @converter.emojify(html));
+    assert_equal(html, @converter.emojify(html));
   end
 
   def test_emojify_inner_body
