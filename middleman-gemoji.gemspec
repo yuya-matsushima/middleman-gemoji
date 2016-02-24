@@ -22,7 +22,6 @@ Gem::Specification.new do |spec|
 
   spec.add_runtime_dependency "middleman", ">= 3.3"
   spec.add_runtime_dependency "gemoji", ">= 2.1"
-  spec.add_runtime_dependency "nokogiri", "~> 1.6"
 
   spec.add_development_dependency "cucumber", ">= 1.3"
   spec.add_development_dependency "aruba", "~> 0.7.4"

@@ -34,13 +34,35 @@ class TestConverter < Minitest::Test
   def test_emojify
     assert_equal(
       '<img class="gemoji" alt="+1" src="/images/emoji/unicode/1f44d.png" />',
-      @converter.convert(':+1:')
+      @converter.emojify(':+1:')
     );
   end
 
   def test_emojify_received_normal_string
-    str = '<p>hoge</p>'
-    assert_equal(str, @converter.convert(str));
+    html = '<p>hoge</p>'
+    assert_equal(str, @converter.emojify(html));
+  end
+
+  def test_emojify_inner_body
+    html = "<html><head><title>something title :+1:</title></head><body>\n<p>somethig emoji :+1:</p>\n</body></html>"
+    result = @converter.emojify_inner_body(html)
+    assert_match(/1f44d.png/, result)
+    assert_match(/something title :\+1:/, result)
+  end
+
+  def test_emojify_inner_body_received_normal_string
+    html = '<p>hoge</p>'
+    assert_equal(html, @converter.emojify_inner_body(html))
+  end
+
+  def test_has_body_return_true
+    html = "<html><head><title>something title :+1:</title></head><body>\n<p>somethig emoji :+1:</p>\n</body></html>"
+    assert_equal(true, @converter.has_body?(html))
+  end
+
+  def test_has_body_return_false
+    html = '<p>somethig emoji :+1:</p>'
+    assert_equal(false, @converter.has_body?(html))
   end
 
   def test_src
