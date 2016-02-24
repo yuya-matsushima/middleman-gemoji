@@ -19,14 +19,14 @@ module Middleman
         return content if content.blank?
 
         if has_body?(content)
-          emojify_only_body(content)
+          emojify_inner_body(content)
         else
           emojify(content)
         end
       end
 
       def emojify(content)
-        content.gsub(/:([\w+-]+):/) do |match|
+        content.to_str.gsub(/:([\w+-]+):/) do |match|
           emoji = Emoji.find_by_alias($1)
           if emoji
             image = []
@@ -45,7 +45,7 @@ module Middleman
       # emojify only in the body tag
       def emojify_inner_body(content)
         pattern = /<body>(.+?)<\/body>/m
-        content.gsub(pattern) do |html|
+        content.to_str.gsub(pattern) do |html|
           emojify(html).gsub(pattern, '\1')
         end
       end
