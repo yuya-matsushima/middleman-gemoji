@@ -2,7 +2,8 @@ language: ruby
 script: bundle exec cucumber
 rvm:
   - ruby-head
-  - 2.2
+  - 2.3.1
+  - 2.2.4
   - 2.1
   - 2.0
 os:
@@ -12,6 +13,7 @@ matrix:
   allow_failures:
   - rvm: ruby-head
 env: TEST=true
+cache: bundler
 notifications:
   slack:
     secure: ZoA6qJJ4JHOtvWAxOhiGDuXEAV0qFhdMgIT7YHEqjzbQaLWNvoLJ0xcdMV47d3UsvrRie3jmhSZ/F1mUf//WGu2HgNMk5VWGHnBKmtXuCk7P1wg0TaeChnKKkV/ls0pRLk+2VS4bYaUYI/8KfJP20eCfvsvkgoXFVusx4CyfmE0=
