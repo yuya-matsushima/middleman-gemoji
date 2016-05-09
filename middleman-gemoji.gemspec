@@ -6,7 +6,7 @@ require 'middleman-gemoji/version'
 Gem::Specification.new do |spec|
   spec.name          = "middleman-gemoji"
   spec.version       = Middleman::Gemoji::VERSION
-  spec.authors       = ["Yuya Terajima"]
+  spec.authors       = ["Yuya Matsushima"]
   spec.email         = ["terra@e2esound.com"]
   spec.summary       = %q{Github-flavored emoji plugin for Middleman.}
   spec.description   = %q{Github-flavored emoji plugin for Middleman.}
@@ -31,4 +31,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rb-inotify", "~> 0.9"
   spec.add_development_dependency "minitest"
   spec.add_development_dependency "minitest-reporters"
+
+  # see: https://github.com/middleman/middleman/commit/ce5807353988b90702504b5ee4952e216de50bc3
+  spec.add_development_dependency "listen", "~> 3.0.0"
 end
